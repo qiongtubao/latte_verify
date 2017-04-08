@@ -16,14 +16,42 @@ describe("/", function() {
 		}
 		
 	});
-	it("array1", function(done) {
+	it("array/minLength", function(done) {
 		try {
 			var data = verify.verify("[1,2,3,4,5,6]", {
 				type: "array",
-				minLength: 3,
-				maxLength: 7
+				minLength: 3
 			});
 			(data[5] === 6).should.be.true
+			done();
+		}catch(err) {
+			done(err);
+		}
+	});
+	it("array/minLengthObject", function(done) {
+		try {
+			var data = verify.verify("[1,2,3,4,5,6]", {
+				type: "array",
+				minLength: {
+					value: 10,
+					error: "array min error"
+				}
+			});
+			done();
+		}catch(err) {
+			done(err);
+		}
+	});
+	it("array/properties", function(done) {
+		try {
+			var data = verify.verify("[1,2,3,4,5,6]", {
+				type: "array",
+				properties: {
+					1: {
+						type: "integer"
+					}
+				}
+			});
 			done();
 		}catch(err) {
 			done(err);
@@ -43,23 +71,19 @@ describe("/", function() {
 			done(err);
 		}
 	});
-	it("array3", function(done) {
+	it("array/all", function(done) {
 		try {
-			var data = verify.verify([1,2,3,4,5,6,7,8], {
+			var data = verify.verify([2,4,6,8], {
 				type: "array",
-				minLength: {
-					value: 3,
-					error: " < minLength "
-				},
-				maxLength: {
-					value: 10,
-					error: "> maxLength"
+				all: {
+					value:[2,4,6],
+					error: "all error"
 				}
 			});
-			(data[3] == 4).should.be.true;
+			(data[2] == 6).should.be.true;
 			done();
 		}catch(err) {
 			done(err);
 		}
-	})
+	});
 });
