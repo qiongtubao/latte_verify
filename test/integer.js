@@ -3,7 +3,7 @@ const should = require("should");
 const utils = require("should");
 var verify = require("../lib/verify.js");
 describe("/", function() {
-	it("/interge1", function(done) {
+	it("/interge", function(done) {
 		try {
 			var data = verify.verify(1, {
 				type: "integer"
@@ -14,12 +14,11 @@ describe("/", function() {
 			done(error);
 		}
 	});
-	it("interge2", function(done) {
+	it("interge/min", function(done) {
 		try {
 			var data = verify.verify("2", {
 				type: "integer",
-				min: 1,
-				max: 3
+				min: 1
 			});
 			(data === 2).should.be.true;
 			done();
