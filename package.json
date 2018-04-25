@@ -1,20 +1,22 @@
 {
 	"name": "latte_verify",
-	"version": "v0.0.3",
-	"description":"latte_verify",
-	"keywords":["latte", "verify", "latte_verify"],
-	"author":"qiongtubao",
-	"main":"./index.js",
-	"repository":{
-		"type":"git",
-		"url":"https://github.com/qiongtubao/latte_verify.git"
+	"version": "0.0.1",
+	"description": "latte_verify",
+	"keywords": [
+		"latte",
+		"latte_verify"
+	],
+	"author": "qiongtubao",
+	"main": "lib/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/qiongtubao/latte_verify.git"
 	},
-	"scripts": {
-		"test": "./node_modules/mocha/bin/mocha  ./test"
+	"dependencies": {
+		"latte_lib": "*"
 	},
 	"devDependencies": {
-		"mocha": "*",
-		"should": "*",
-		"latte_lib": "*"
+		"chai": "*",
+		"should": "*"
 	}
 }

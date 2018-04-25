@@ -1,22 +1,22 @@
 "use strict"
 const should = require("should");
 const utils = require("should");
-var verify = require("../lib/verify.js");
-describe("/", function() {
-	it("array", function(done) {
+var verify = require("../index");
+describe("array", function () {
+	it("array", function (done) {
 		try {
-			var data = verify.verify([1,2,3,4,5], {
+			var data = verify.verify([1, 2, 3, 4, 5], {
 				type: "array"
 			});
 			(data.length === 5).should.be.true;
 
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
-		
+
 	});
-	it("array/minLength", function(done) {
+	it("minLength", function (done) {
 		try {
 			var data = verify.verify("[1,2,3,4,5,6]", {
 				type: "array",
@@ -24,11 +24,11 @@ describe("/", function() {
 			});
 			(data[5] === 6).should.be.true
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});
-	it("array/minLengthObject", function(done) {
+	it("minLengthObject", function (done) {
 		try {
 			var data = verify.verify("[1,2,3,4,5,6]", {
 				type: "array",
@@ -38,11 +38,11 @@ describe("/", function() {
 				}
 			});
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});
-	it("array/properties", function(done) {
+	it("properties", function (done) {
 		try {
 			var data = verify.verify("[1,2,3,4,5,6]", {
 				type: "array",
@@ -53,36 +53,36 @@ describe("/", function() {
 				}
 			});
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});
-	it("array2", function(done) {
+	it("array2", function (done) {
 		try {
-			var data = verify.verify([2,4,6,8], {
+			var data = verify.verify([2, 4, 6, 8], {
 				type: "array",
-				match: function(o) {
-					return o%2 == 0;
+				match: function (o) {
+					return o % 2 == 0;
 				}
 			});
 			(data[2] == 6).should.be.true;
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});
-	it("array/all", function(done) {
+	it("array/all", function (done) {
 		try {
-			var data = verify.verify([2,4,6,8], {
+			var data = verify.verify([2, 4, 6, 8], {
 				type: "array",
 				all: {
-					value:[2,4,6],
+					value: [2, 4, 6],
 					error: "all error"
 				}
 			});
 			(data[2] == 6).should.be.true;
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});

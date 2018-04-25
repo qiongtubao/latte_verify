@@ -1,20 +1,20 @@
 "use strict"
 const should = require("should");
 const utils = require("should");
-var verify = require("../lib/verify.js");
-describe("/", function() {
-	it("/interge", function(done) {
+var verify = require("../index");
+describe("/", function () {
+	it("/interge", function (done) {
 		try {
 			var data = verify.verify(1, {
 				type: "integer"
 			});
 			(data === 1).should.be.true;
 			done();
-		}catch(error) {
+		} catch (error) {
 			done(error);
 		}
 	});
-	it("interge/min", function(done) {
+	it("interge/min", function (done) {
 		try {
 			var data = verify.verify("2", {
 				type: "integer",
@@ -22,37 +22,36 @@ describe("/", function() {
 			});
 			(data === 2).should.be.true;
 			done();
-		}catch(error) {
-			console.log(error);
-			done();
+		} catch (error) {
+			done(error);
 		}
-		
-		
+
+
 	});
-	it("interge3", function(done) {
+	it("interge3", function (done) {
 		var error = "test";
 		try {
 			var data = verify.verify("#int", {
-				type:  {
+				type: {
 					value: "integer",
 					error: error
 				}
 			});
-			
+
 			done();
-		}catch(e) {
+		} catch (e) {
 			(e === error).should.be.true;
 			done();
 		}
 
 	});
-	it("integer4", function(done) {
+	it("integer4", function (done) {
 		var error = "test";
 		var maxError = " > 90";
 		try {
 			var data = verify.verify("100", {
 				type: {
-					value:"integer",
+					value: "integer",
 					error: "type error"
 				},
 				min: {
@@ -64,10 +63,10 @@ describe("/", function() {
 					error: maxError
 				}
 			});
-			(data === 100 ).should.be.true;
+			(data === 100).should.be.true;
 			done();
-		}catch(err) {
-			
+		} catch (err) {
+
 			(err === maxError).should.be.true;
 
 			done();

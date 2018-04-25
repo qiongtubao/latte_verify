@@ -1,32 +1,30 @@
 "use strict"
 const should = require("should");
 const utils = require("should");
-var verify = require("../lib/verify.js");
-describe("/", function() {
-	it("/string/minLength", function(done) {
+var verify = require("../index");
+describe("/", function () {
+	it("/string/minLength", function (done) {
 		try {
 			var data = verify.verify("string", {
 				type: "string",
-				minLength:1
+				minLength: 1
 			});
-			console.log(data);
 			done();
-		}catch(error) {
+		} catch (error) {
 			done(error);
 		}
 	});
-	it("/string/in", function(done) {
+	it("/string/in", function (done) {
 		try {
 			var data = verify.verify("interge", {
 				type: "string",
 				in: ["interge", "boolean"]
 			});
-			console.log(data);
 			done();
-		}catch(error) {
+		} catch (error) {
 			done(error);
 		}
 	})
-	
+
 
 });

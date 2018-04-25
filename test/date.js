@@ -1,21 +1,20 @@
 "use strict"
 const should = require("should");
 const utils = require("should");
-var verify = require("../lib/verify.js");
-describe("/", function() {
-	it("date/min", function(done) {
+var verify = require("../index");
+describe("date", function () {
+	it("min", function (done) {
 		try {
 			var data = verify.verify(1234567, {
 				type: "date",
 				min: 1
 			});
-			console.log(data);
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});
-	it("date/minObject", function(done) {
+	it("minObject", function (done) {
 		try {
 			var data = verify.verify(1234567, {
 				type: "date",
@@ -25,25 +24,23 @@ describe("/", function() {
 				},
 				error: "is error"
 			});
-			console.log(data);
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});
-	it("date/maxError", function(done) {
+	it("maxError", function (done) {
 		try {
 			var data = verify.verify(1234567, {
 				type: "date",
 				max: 123
 			});
-			console.log(data);
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	})
-	it("date/maxObjectError", function(done) {
+	it("maxObjectError", function (done) {
 		try {
 			var data = verify.verify("fack", {
 				type: "date",
@@ -53,9 +50,8 @@ describe("/", function() {
 				},
 				error: "date is error"
 			});
-			console.log(data);
 			done();
-		}catch(err) {
+		} catch (err) {
 			done(err);
 		}
 	});

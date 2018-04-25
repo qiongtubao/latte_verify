@@ -1,1 +1,1 @@
-module.exports = require("./lib/verify");
+module.exports = require("./lib/index").default;
