@@ -5,6 +5,7 @@ import utils from "../utils"
 
 module ArrayType {
   export function parse(object: any, config: any) {
+
     switch (whatIs(object)) {
       case "array":
         return object;

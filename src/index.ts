@@ -22,6 +22,9 @@ let handles = {
   "object": objectType,
   "array": arrayType
 };
+
+
+
 let verify = (data, config): any => {
 
   if (data == null) {
@@ -30,7 +33,6 @@ let verify = (data, config): any => {
     }
     if (config.must == true) {
       //throw new Error("config must value")
-      console.log(config, data);
       throw config.error || new DataError("config must value")
     } else if (latte_lib.isObject(config.must) && config.must.value == true) {
       throw config.must.error || config.error || new DataError("config must value");
