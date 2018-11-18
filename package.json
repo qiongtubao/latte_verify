@@ -17,6 +17,9 @@
 	},
 	"devDependencies": {
 		"chai": "*",
-		"should": "*"
+		"should": "*",
+		"mocha": "*",
+		"@types/node": "*",
+		"@types/mocha": "*"
 	}
 }

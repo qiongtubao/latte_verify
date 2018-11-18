@@ -19,7 +19,7 @@ module IntegerType {
     }
     if (config.min) {
       utils.than(config.min, object, (v, data) => {
-        if (data > v) {
+        if (data < v) {
           throw new DataError("data min error", object);
         }
       });
